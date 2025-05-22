@@ -1,0 +1,3432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinzas Kelly - Instrumental Quirúrgico de Precisión</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #1abc9c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .header:hover h1 {
+            transform: translateY(-5px);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        
+        .intro-text {
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .intro-text:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .intro-text h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .intro-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .intro-text:hover h2::after {
+            width: 120px;
+        }
+        
+        .intro-text p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .intro-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+        
+        .intro-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .intro-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotateY(180deg);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(26, 188, 156, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Pinzas Kelly</h1>
+        <p class="tagline">Precisión y confiabilidad en cada procedimiento quirúrgico</p>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro-section">
+            <div class="intro-text">
+                <h2>Excelencia en Instrumental Quirúrgico</h2>
+                <p>Las pinzas Kelly son uno de los instrumentos quirúrgicos más versátiles y utilizados en la medicina moderna. Diseñadas para la hemostasia, estas pinzas son fundamentales en prácticamente todos los procedimientos quirúrgicos.</p>
+                <p>Con un diseño que ha perdurado por décadas, las pinzas Kelly combinan funcionalidad, durabilidad y precisión, permitiendo a los cirujanos realizar procedimientos con la máxima confianza y eficacia.</p>
+                <a href="#" class="cta-button">Descubrir más</a>
+            </div>
+            <div class="intro-image">
+                <img src="https://i.ytimg.com/vi/RDbxOPNWikc/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgWihSMA8=&rs=AOn4CLBkPZtUKuVKbmLpJlFkWGnGSriMqw" alt="Pinzas Kelly en uso quirúrgico">
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Precisión Superior</h3>
+                <p>Diseñadas para proporcionar un agarre firme y preciso, las pinzas Kelly permiten un control exacto durante procedimientos delicados.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Construcción Duradera</h3>
+                <p>Fabricadas con acero inoxidable de la más alta calidad, garantizando resistencia a la corrosión y longevidad.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Versatilidad Clínica</h3>
+                <p>Disponibles en diferentes tamaños y configuraciones para adaptarse a diversos procedimientos y especialidades médicas.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Añadir interactividad adicional
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efectos de paralaje al desplazamiento
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                const header = document.querySelector('.header');
+                header.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
+            });
+            
+            // Animación de entrada para las tarjetas de características
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            featureCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de las Pinzas Kelly</title>
+    <style>
+        :root {
+            --primary-color: #3a5a78;
+            --secondary-color: #6c9ab9;
+            --accent-color: #d95e4c;
+            --light-color: #f2f7fb;
+            --dark-color: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        header h1:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            padding: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        section:hover h2 {
+            color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .image-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.03);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #c04a38;
+            transform: translateY(-3px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #c04a38;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Historia de las Pinzas Kelly</h1>
+        <p>Un instrumento quirúrgico revolucionario que ha salvado innumerables vidas</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#origen">Origen</a></li>
+            <li><a href="#inventor">Dr. Howard Kelly</a></li>
+            <li><a href="#evolucion">Evolución</a></li>
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#aplicaciones">Aplicaciones</a></li>
+            <li><a href="#impacto">Impacto</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="origen">
+            <h2>Origen de las Pinzas Kelly</h2>
+            <p>Las pinzas Kelly, uno de los instrumentos quirúrgicos más utilizados en la medicina moderna, tienen su origen a finales del siglo XIX. Fueron desarrolladas por el Dr. Howard Atwood Kelly, un distinguido ginecólogo estadounidense que buscaba una solución efectiva para controlar hemorragias durante procedimientos quirúrgicos.</p>
+            
+            <div class="image-container">
+                <img src="https://imgv2-1-f.scribdassets.com/img/document/359700024/original/bf657c489d/1?v=1" alt="Pinzas Kelly originales">
+            </div>
+            
+            <p>Antes de la invención de estas pinzas, los cirujanos enfrentaban grandes dificultades para controlar el sangrado durante las operaciones, lo que resultaba en complicaciones y altas tasas de mortalidad. La necesidad de un instrumento que pudiera sujetar con firmeza los vasos sanguíneos mientras se realizaba la cirugía era urgente en el campo médico de la época.</p>
+        </section>
+        
+        <section id="inventor">
+            <h2>Dr. Howard Atwood Kelly: El Inventor</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Biografía</h3>
+                    <p>Howard Atwood Kelly (1858-1943) fue un eminente médico estadounidense, reconocido como uno de los "Cuatro Grandes" fundadores del Hospital Johns Hopkins. Se especializó en ginecología y fue pionero en numerosas técnicas quirúrgicas.</p>
+                    <p>Graduado de la Universidad de Pensilvania en 1877, Kelly dedicó su vida a mejorar las prácticas quirúrgicas y a la educación médica. Su pasión por la innovación lo llevó a desarrollar varios instrumentos quirúrgicos, siendo las pinzas Kelly su aporte más reconocido y utilizado.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Contribuciones</h3>
+                    <p>Además de las famosas pinzas, Kelly realizó importantes contribuciones en el campo de la cirugía ginecológica y urológica. Fue pionero en el uso de la cistoscopia en mujeres y desarrolló técnicas para el tratamiento de fístulas vesicovaginales.</p>
+                    <p>Su libro "Operative Gynecology", publicado en 1898, se convirtió en un texto fundamental para generaciones de médicos y estableció muchos de los procedimientos quirúrgicos que se siguen utilizando en la actualidad.</p>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Howard_Atwood_Kelly_young.jpg/1200px-Howard_Atwood_Kelly_young.jpg" alt="Dr. Howard Atwood Kelly">
+            </div>
+        </section>
+        
+        <section id="evolucion">
+            <h2>Evolución de las Pinzas Kelly</h2>
+            <p>La historia de las pinzas Kelly es un testimonio de la evolución constante de los instrumentos médicos para satisfacer las necesidades quirúrgicas cambiantes a lo largo del tiempo.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1880s</h3>
+                        <p>El Dr. Kelly comienza a desarrollar sus primeros prototipos de pinzas hemostáticas basadas en diseños anteriores pero con mejoras significativas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1890s</h3>
+                        <p>Primera versión oficial de las pinzas Kelly es introducida en la práctica quirúrgica. El diseño original presentaba un mecanismo de bloqueo y puntas dentadas para una mejor sujeción.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Principios del siglo XX</h3>
+                        <p>Las pinzas Kelly se popularizan en todo Estados Unidos y comienzan a utilizarse en Europa. Se realizan pequeñas modificaciones para mejorar su agarre y durabilidad.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1920-1940</h3>
+                        <p>Surgen variantes como las pinzas Kelly curvas para facilitar el acceso a áreas difíciles durante la cirugía. La fabricación en acero inoxidable mejora significativamente su durabilidad y resistencia.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1950-1980</h3>
+                        <p>Se desarrollan versiones más pequeñas (mosquito Kelly) y más grandes para diferentes tipos de procedimientos. La estandarización en la fabricación permite una mayor precisión y consistencia.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1980-Actualidad</h3>
+                        <p>Incorporación de materiales avanzados y técnicas de fabricación de precisión. Desarrollo de versiones desechables para reducir el riesgo de infecciones. Adaptación para uso en cirugía laparoscópica y robótica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="caracteristicas">
+            <h2>Características y Diseño</h2>
+            <p>Las pinzas Kelly se caracterizan por su diseño simple pero ingenioso que ha demostrado ser extremadamente eficaz a lo largo de más de un siglo de uso médico.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Estructura Básica</h3>
+                    <p>Las pinzas Kelly tienen forma de tijera con mangos en anillo y un mecanismo de cremallera que permite bloquearlas en posición cerrada. Su longitud estándar es de aproximadamente 14-16 cm, aunque existen variantes más largas y más cortas.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Puntas</h3>
+                    <p>Las puntas pueden ser rectas o curvas, dependiendo de la aplicación específica. Cuentan con estrías transversales o dientes que proporcionan un agarre firme sin dañar excesivamente los tejidos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Mecanismo de Bloqueo</h3>
+                    <p>El mecanismo de cremallera permite asegurar las pinzas en posición cerrada con diferentes grados de presión, lo que resulta crucial para mantener el control durante procedimientos prolongados.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Material</h3>
+                    <p>Originalmente fabricadas en acero, las pinzas Kelly modernas están hechas generalmente de acero inoxidable quirúrgico de alta calidad, lo que permite su esterilización repetida y garantiza su durabilidad. También existen versiones en titanio y otras aleaciones especiales.</p>
+                </div>
+            </div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://instamedic.mx/wp-content/uploads/2020/01/pinza-kelly-recta7.png" alt="Pinzas Kelly rectas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://m.media-amazon.com/images/I/31OoQlVQ69L._AC_UF1000,1000_QL80_.jpg" alt="Pinzas Kelly curvas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picodent.com.co/wp-content/uploads/2022/06/pinza-mosquito.jpg" alt="Pinzas Kelly mosquito">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://m.media-amazon.com/images/I/61NA2JW-R6L._AC_UF350,350_QL80_.jpg" alt="Detalle del mecanismo de bloqueo">
+                </div>
+            </div>
+        </section>
+        
+        <section id="aplicaciones">
+            <h2>Aplicaciones en la Medicina Moderna</h2>
+            <p>Las pinzas Kelly son uno de los instrumentos más versátiles en el arsenal quirúrgico moderno, utilizadas en una amplia variedad de procedimientos médicos.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Cirugía General</h3>
+                    <p>Se utilizan para sujetar y comprimir vasos sanguíneos, tejidos y estructuras anatómicas diversas durante procedimientos abdominales, torácicos y otros tipos de cirugía general.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Ginecología y Obstetricia</h3>
+                    <p>Campo original para el que fueron diseñadas, siguen siendo fundamentales en cirugías ginecológicas para el control de hemorragias y la manipulación de tejidos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Cirugía Vascular</h3>
+                    <p>Utilizadas para el control temporal de vasos sanguíneos durante reparaciones vasculares y procedimientos de bypass.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Cirugía Mínimamente Invasiva</h3>
+                    <p>Versiones adaptadas de las pinzas Kelly se utilizan en procedimientos laparoscópicos y endoscópicos, manteniendo su función básica pero con diseños modificados para acceder a través de pequeñas incisiones.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Medicina de Emergencia</h3>
+                    <p>Herramienta esencial en salas de emergencia para el control rápido de hemorragias y en procedimientos de emergencia.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Medicina Veterinaria</h3>
+                    <p>Ampliamente utilizadas en cirugías veterinarias, demostrando la versatilidad del diseño a través de diferentes especies y tamaños de pacientes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="impacto">
+            <h2>Impacto en la Medicina</h2>
+            <p>Es difícil sobreestimar el impacto que las pinzas Kelly han tenido en la práctica médica moderna. Su invención representó un avance significativo en la capacidad de los cirujanos para controlar hemorragias, lo que ha salvado incontables vidas a lo largo de más de un siglo.</p>
+            
+            <p>Antes de su desarrollo, las cirugías eran procedimientos mucho más riesgosos, con tasas de mortalidad elevadas debido a complicaciones relacionadas con la pérdida de sangre. Las pinzas Kelly, junto con otros avances en anestesia, antisepsia y técnicas quirúrgicas, contribuyeron a transformar la cirugía de un último recurso desesperado a un método terapéutico seguro y eficaz.</p>
+            
+            <p>Hoy en día, estas pinzas son tan fundamentales en la práctica quirúrgica que es prácticamente imposible imaginar un quirófano sin ellas. Su diseño ha inspirado numerosos instrumentos similares, y su legado perdura en cada procedimiento quirúrgico realizado en todo el mundo.</p>
+            
+            <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2uGtrGVzp5b0SiVZK6FGPQB56ofqioFgtMQ&s" alt="Quirófano moderno con pinzas Kelly en uso">
+            </div>
+            
+            <p>El Dr. Kelly tal vez nunca imaginó que su invención tendría un impacto tan duradero y significativo, pero su contribución a la medicina ha mejorado y salvado la vida de millones de pacientes en todo el mundo.</p>
+        </section>
+    </main> 
+    <a href="#" class="back-to-top">↑</a>
+    
+    <script>
+        // Mostrar/ocultar botón "Volver arriba"
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Desplazamiento suave al hacer clic en los enlaces del menú
+        document.querySelectorAll('nav a, .back-to-top').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                let target = document.querySelector(this.getAttribute('href'));
+                if (!target && this.classList.contains('back-to-top')) {
+                    target = document.querySelector('body');
+                }
+                
+                if (target) {
+                    window.scrollTo({
+                        top: target === document.querySelector('body') ? 0 : target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Añadir efectos de animación a los elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.15
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinzas Kelly - Materiales y Características</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/300') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hero-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        h2:hover::after {
+            width: 100%;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .compare-table th,
+        .compare-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .compare-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .compare-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .compare-table tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover .feature-icon {
+            background-color: var(--secondary);
+            color: white;
+            transform: rotate(360deg);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-media {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Interactive elements */
+        .interactive-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .interactive-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .interactive-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .interactive-image .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: height 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .interactive-image:hover .overlay {
+            height: 100%;
+        }
+        
+        /* Accordion */
+        .accordion {
+            margin-top: 2rem;
+        }
+        
+        .accordion-item {
+            border: 1px solid #eee;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background-color: #e9ecef;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1rem;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 1rem;
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Tabs */
+        .tabs {
+            margin-top: 2rem;
+        }
+        
+        .tab-header {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .tab-btn:hover,
+        .tab-btn.active {
+            color: var(--secondary);
+        }
+        
+        .tab-btn.active::after {
+            width: 100%;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Image gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-zoom {
+            color: white;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="inicio" class="section">
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1>Pinzas Kelly: Precisión y Durabilidad en Instrumental Quirúrgico</h1>
+                        <p>Las pinzas Kelly son instrumentos quirúrgicos hemostáticos esenciales diseñados para pinzar, sujetar y cerrar vasos sanguíneos durante procedimientos quirúrgicos. Su diseño y materiales permiten una precisión excepcional y años de uso confiable.</p>
+                        <div>
+                            <a href="#materiales" class="btn">Descubrir Materiales</a>
+                            <a href="#galeria" class="btn btn-accent">Ver Galería</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_956543-MLU71267770583_082023-O.webp" alt="Pinzas Kelly profesionales">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="materiales" class="section">
+            <div class="container">
+                <h2>Materiales de Fabricación</h2>
+                <p>Las pinzas Kelly se fabrican con diversos materiales de alta calidad que garantizan su efectividad, durabilidad y seguridad durante los procedimientos quirúrgicos. Cada material ofrece ventajas específicas según las necesidades médicas.</p>
+                
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_803766-MLU73579533208_122023-O.webp" alt="Acero inoxidable quirúrgico">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Acero Inoxidable</h3>
+                            <p>El material más común en la fabricación de pinzas Kelly es el acero inoxidable de grado quirúrgico 316L o 420. Este acero contiene cromo (18%), níquel (8%) y molibdeno (3%), lo que proporciona:</p>
+                            <ul>
+                                <li>Alta resistencia a la corrosión</li>
+                                <li>Excelente durabilidad</li>
+                                <li>Buena resistencia mecánica</li>
+                                <li>Fácil esterilización</li>
+                            </ul>
+                            <button class="btn open-modal" data-modal="modal-acero">Más información</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://www.ecosemsanidad.com/cache/0/1/6/b/1/016b1012c5c74fab11b11e7d73269d3020842073.jpeg" alt="Titanio quirúrgico">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Titanio</h3>
+                            <p>Las pinzas Kelly de titanio representan una alternativa premium al acero inoxidable, ofreciendo ventajas significativas:</p>
+                            <ul>
+                                <li>Extremadamente ligeras (45% más ligeras que el acero)</li>
+                                <li>Mayor resistencia a la corrosión</li>
+                                <li>No magnéticas (compatibles con MRI)</li>
+                                <li>Biocompatibilidad superior</li>
+                                <li>Mayor durabilidad</li>
+                            </ul>
+                            <button class="btn open-modal" data-modal="modal-titanio">Más información</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://m.media-amazon.com/images/I/610PQ0hyRLL.jpg" alt="Aleaciones especiales">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Aleaciones Especiales</h3>
+                            <p>Algunas pinzas Kelly utilizan aleaciones especiales para aplicaciones específicas:</p>
+                            <ul>
+                                <li>Aleaciones de tungsteno-carburo: Mayor dureza y resistencia</li>
+                                <li>Aleaciones antimagnéticas: Para procedimientos con MRI</li>
+                                <li>Aleaciones de cromo-cobalto: Resistencia extrema al desgaste</li>
+                                <li>Instrumentos recubiertos de nitruro de titanio: Mejora dureza superficial</li>
+                            </ul>
+                            <button class="btn open-modal" data-modal="modal-aleaciones">Más información</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="caracteristicas" class="section">
+            <div class="container">
+                <h2>Características y Tratamientos</h2>
+                <p>Además del material base, las pinzas Kelly reciben diversos tratamientos que mejoran sus propiedades y funcionalidad.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">T</div>
+                        <div>
+                            <h3>Tratamiento Térmico</h3>
+                            <p>Optimiza la dureza y resistencia del metal mediante ciclos de calentamiento y enfriamiento controlados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">P</div>
+                        <div>
+                            <h3>Pasivación</h3>
+                            <p>Tratamiento químico que elimina contaminantes y mejora la capa protectora natural contra la corrosión.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">E</div>
+                        <div>
+                            <h3>Electropulido</h3>
+                            <p>Proporciona un acabado liso y brillante que reduce la adhesión bacteriana y facilita la limpieza.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">R</div>
+                        <div>
+                            <h3>Recubrimientos</h3>
+                            <p>Algunos instrumentos reciben recubrimientos especiales como el nitruro de titanio (dorado) o carbono tipo diamante (DLC).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <div class="tab-header">
+                        <button class="tab-btn active" data-tab="tab-1">Diseño</button>
+                        <button class="tab-btn" data-tab="tab-2">Acabados</button>
+                        <button class="tab-btn" data-tab="tab-3">Mantenimiento</button>
+                    </div>
+                    
+                    <div id="tab-1" class="tab-content active">
+                        <h3>Diseño Especializado</h3>
+                        <p>Las pinzas Kelly presentan un diseño distintivo con mordazas estriadas que facilitan el agarre seguro de los vasos sanguíneos. Están disponibles en dos variantes principales:</p>
+                        <div class="interactive-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0674/9385/5538/files/PINZA_KELLY_480x480.jpg?v=1717024407" alt="Diseño de pinzas Kelly">
+                            <div class="overlay">Visualizar diferentes diseños (haga clic para ampliar)</div>
+                        </div>
+                        <ul>
+                            <li><strong>Kelly rectas:</strong> Para acceso directo</li>
+                            <li><strong>Kelly curvas:</strong> Para acceso a áreas de difícil alcance</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="tab-2" class="tab-content">
+                        <h3>Acabados Superficiales</h3>
+                        <p>El acabado de las pinzas Kelly influye significativamente en su funcionalidad:</p>
+                        <ul>
+                            <li><strong>Mate:</strong> Reduce reflejos bajo luces quirúrgicas</li>
+                            <li><strong>Brillante:</strong> Facilita la inspección visual de limpieza</li>
+                            <li><strong>Satinado:</strong> Equilibrio entre los dos anteriores</li>
+                        </ul>
+                        <div class="interactive-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSShnFhapbjiqw8dZH8xRQxKzvhUWEFcOGvVg&s" alt="Acabados de pinzas Kelly">
+                            <div class="overlay">Diferentes acabados superficiales</div>
+                        </div>
+                    </div>
+                    
+                    <div id="tab-3" class="tab-content">
+                        <h3>Cuidado y Mantenimiento</h3>
+                        <p>Para maximizar la vida útil de las pinzas Kelly:</p>
+                        <ul>
+                            <li>Limpiar inmediatamente después de su uso</li>
+                            <li>Evitar soluciones salinas prolongadas</li>
+                            <li>Esterilizar según las recomendaciones del fabricante</li>
+                            <li>Lubricar las articulaciones periódicamente</li>
+                            <li>Inspeccionar regularmente la alineación y funcionalidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparativa" class="section">
+            <div class="container">
+                <h2>Comparativa de Materiales</h2>
+                <p>Elegir el material adecuado para las pinzas Kelly depende de diversas consideraciones, incluyendo el tipo de procedimiento, frecuencia de uso y presupuesto.</p>
+                
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Acero Inoxidable</th>
+                            <th>Titanio</th>
+                            <th>Aleaciones Especiales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Peso</td>
+                            <td>Estándar</td>
+                            <td>Ligero (45% menos)</td>
+                            <td>Variable (según aleación)</td>
+                        </tr>
+                        <tr>
+                            <td>Resistencia corrosión</td>
+                            <td>Buena</td>
+                            <td>Excelente</td>
+                            <td>Variable (muy alta en cromo-cobalto)</td>
+                        </tr>
+                        <tr>
+                            <td>Durabilidad</td>
+                            <td>Alta</td>
+                            <td>Muy alta</td>
+                            <td>Excepcional (tungsteno-carburo)</td>
+                        </tr>
+                        <tr>
+                            <td>Compatibilidad MRI</td>
+                            <td>No compatible</td>
+                            <td>Compatible</td>
+                            <td>Depende de la aleación</td>
+                        </tr>
+                        <tr>
+                            <td>Costo relativo</td>
+                            <td>Base ($)</td>
+                            <td>Alto ($$)</td>
+                            <td>Muy alto ($$)</td>
+                        </tr>
+                        <tr>
+                            <td>Facilidad limpieza</td>
+                            <td>Buena</td>
+                            <td>Excelente</td>
+                            <td>Variable (excelente con recubrimientos)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Aplicaciones específicas según material</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>La elección del material para las pinzas Kelly puede variar según la especialidad y el procedimiento:</p>
+                            <ul>
+                                <li><strong>Cirugía general:</strong> Acero inoxidable estándar (costo-eficiente y versátil)</li>
+                                <li><strong>Neurocirugía:</strong> Titanio (ligereza y precisión)</li>
+                                <li><strong>Cirugía vascular:</strong> Acero inoxidable o titanio con recubrimiento antiadherente</li>
+                                <li><strong>Cirugía pediátrica:</strong> Titanio (menor peso y tamaños más pequeños)</li>
+                                <li><strong>Electrocirugía:</strong> Pinzas con aislamiento y puntas conductoras</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Criterios de selección</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Al seleccionar pinzas Kelly, considere:</p>
+                            <ol>
+                                <li>Tipo de procedimiento y tejidos a manipular</li>
+                                <li>Frecuencia de uso y durabilidad requerida</li>
+                                <li>Necesidades de esterilización</li>
+                                <li>Compatibilidad con entornos específicos (MRI, etc.)</li>
+                                <li>Presupuesto disponible</li>
+                                <li>Preferencias ergonómicas del cirujano</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Tendencias recientes</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>La industria de instrumental quirúrgico está evolucionando con:</p>
+                            <ul>
+                                <li>Pinzas Kelly con recubrimientos nanotecnológicos antimicrobianos</li>
+                                <li>Materiales compuestos ultraligeros que mantienen rigidez</li>
+                                <li>Incorporación de sensores para monitorear la presión aplicada</li>
+                                <li>Instrumentos con códigos de color para facilitar identificación</li>
+                                <li>Diseños ergonómicos avanzados para reducir fatiga durante cirugías prolongadas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="section">
+            <div class="container">
+                <h2>Galería de Productos</h2>
+                <p>Explore nuestra colección de pinzas Kelly en diferentes materiales, tamaños y acabados.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item" data-img="/api/placeholder/800/600">
+                        <img src="https://ddazul.com/productos/20191111151520-9df6560fb24f65d90cbb414e60fbfa79.jpg" alt="Pinzas Kelly rectas de acero inoxidable">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">+</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-img="/api/placeholder/800/600">
+                        <img src="https://m.media-amazon.com/images/I/31OoQlVQ69L._AC_UF1000,1000_QL80_.jpg" alt="Pinzas Kelly curvas de titanio">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">+</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-img="/api/placeholder/800/600">
+                        <img src="https://sdental.mx/cdn/shop/products/image_9e8774c9-6805-431b-ae83-77b73690af5d.png?v=1663611269" alt="Pinzas Kelly con recubrimiento de nitruro de titanio">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">+</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-img="/api/placeholder/800/600">
+                        <img src="https://api.laleo.com/public/images/Baumanometros/laleo_7502256721904-pinza-kelly-recta-14-cm-17-160-.jpeg" alt="Pinzas Kelly para microcirugía">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">+</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-img="/api/placeholder/800/600">
+                        <img src="https://http2.mlstatic.com/D_719559-MLA82967193845_032025-C.jpg" alt="Set completo de pinzas Kelly">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">+</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-img="/api/placeholder/800/600">
+                        <img src="https://sanhigia.com/media/catalog/product/cache/2c567a65a39a0bcdb776e5783b4cd2f6/B/M/BM018R_06_1.jpg" alt="Pinzas Kelly con mango ergonómico">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+    </main>
+
+   
+
+    <!-- Modales -->
+    <div id="modal-acero" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Acero Inoxidable Quirúrgico</h2>
+            <div class="modal-body">
+                <img src="/api/placeholder/800/400" alt="Acero inoxidable detalle" style="width: 100%; border-radius: 5px; margin-bottom: 20px;">
+                <p>El acero inoxidable quirúrgico es la opción más tradicional y ampliamente utilizada para la fabricación de pinzas Kelly. Existen diferentes grados utilizados en instrumental médico:</p>
+                <h3>Principales tipos:</h3>
+                <ul>
+                    <li><strong>Acero 316L:</strong> Contiene molibdeno que mejora la resistencia a la corrosión en entornos salinos y clorados.</li>
+                    <li><strong>Acero 420:</strong> Mayor dureza pero menor resistencia a la corrosión, ideal para instrumentos de corte.</li>
+                    <li><strong>Acero 440:</strong> Muy duro y resistente al desgaste, utilizado en instrumentos que requieren un borde cortante duradero.</li>
+                </ul>
+                <p>La composición típica del acero inoxidable 316L incluye:</p>
+                <ul>
+                    <li>16-18% Cromo: Proporciona resistencia a la corrosión</li>
+                    <li>10-14% Níquel: Mejora la resistencia a la corrosión y proporciona estructura austenítica</li>
+                    <li>2-3% Molibdeno: Aumenta la resistencia a la corrosión por picaduras</li>
+                    <li>&lt;0.03% Carbono: Bajo contenido para mejorar resistencia a la corrosión</li>
+                </ul>
+                <p>Las pinzas Kelly de acero inoxidable son preferidas por muchos cirujanos por su equilibrio entre costo, durabilidad y facilidad de mantenimiento.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-titanio" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Titanio de Grado Médico</h2>
+            <div class="modal-body">
+                <img src="https://hergom-medical.com/cdn/shop/files/Imagenes-InstrumentalJessica-PINZAKELLY-Recta_1000x.jpg?v=1708106616" alt="Titanio detalle" style="width: 100%; border-radius: 5px; margin-bottom: 20px;">
+                <p>El titanio utilizado en instrumental quirúrgico es generalmente Ti-6Al-4V (titanio grado 5) o titanio comercialmente puro (grados 1-4).</p>
+                <h3>Ventajas específicas:</h3>
+                <ul>
+                    <li><strong>Biocompatibilidad superior:</strong> No produce reacciones alérgicas.</li>
+                    <li><strong>Extremadamente ligero:</strong> 45% más ligero que el acero inoxidable, reduce la fatiga del cirujano.</li>
+                    <li><strong>No magnético:</strong> Compatible con entornos de resonancia magnética.</li>
+                    <li><strong>Resistencia excepcional a la corrosión:</strong> Incluso en entornos altamente corrosivos.</li>
+                    <li><strong>Mayor resistencia específica:</strong> Relación resistencia/peso superior al acero.</li>
+                </ul>
+                <p>A pesar de su mayor costo inicial, las pinzas Kelly de titanio pueden ofrecer un mejor valor a largo plazo debido a su durabilidad superior y menor necesidad de reemplazo.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-aleaciones" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Aleaciones Especiales</h2>
+            <div class="modal-body">
+                <img src="/api/placeholder/800/400" alt="Aleaciones especiales detalle" style="width: 100%; border-radius: 5px; margin-bottom: 20px;">
+                <h3>Aleaciones avanzadas para aplicaciones especializadas:</h3>
+                <ul>
+                    <li><strong>Tungsteno-carburo:</strong>
+                        <ul>
+                            <li>Dureza extrema (70 HRC o superior)</li>
+                            <li>Resistencia excepcional al desgaste</li>
+                            <li>Ideal para uso repetitivo intensivo</li>
+                            <li>A menudo se utiliza como insertos en las mordazas</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cromo-cobalto:</strong>
+                        <ul>
+                            <li>Excelente resistencia a la corrosión</li>
+                            <li>Alta dureza y resistencia al desgaste</li>
+                            <li>Biocompatibilidad comparable al titanio</li>
+                        </ul>
+                    </li>
+                    <li><strong>Recubrimientos especiales:</strong>
+                        <ul>
+                            <li>Nitruro de titanio (TiN): Recubrimiento dorado, aumenta dureza superficial</li>
+                            <li>Carbono tipo diamante (DLC): Reduce fricción, aumenta dureza</li>
+                            <li>Nitruro de zirconio (ZrN): Similar al TiN pero con color plateado</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Estas aleaciones y recubrimientos especiales suelen utilizarse para instrumentos premium destinados a procedimientos específicos o entornos quirúrgicos exigentes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal imagen ampliada -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="enlarged-image" src="" alt="Imagen ampliada" style="width: 100%;">
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad para los acordeones
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Funcionalidad para las pestañas
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Desactivar todas las pestañas
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Activar la pestaña seleccionada
+                button.classList.add('active');
+                document.getElementById(button.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+        
+        // Modales
+        document.querySelectorAll('.open-modal').forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal');
+                document.getElementById(modalId).classList.add('active');
+            });
+        });
+        
+        document.querySelectorAll('.close-modal').forEach(close => {
+            close.addEventListener('click', () => {
+                close.closest('.modal').classList.remove('active');
+            });
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+        
+        // Galería
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.getAttribute('data-img');
+                const imgAlt = item.querySelector('img').getAttribute('alt');
+                
+                const modal = document.getElementById('image-modal');
+                const enlargedImg = document.getElementById('enlarged-image');
+                
+                enlargedImg.src = imgSrc;
+                enlargedImg.alt = imgAlt;
+                
+                modal.classList.add('active');
+            });
+        });
+        
+        // Animación al hacer scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.section').forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Animación inicial
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Activar animación inicial después de cargar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('#inicio').style.opacity = '1';
+                document.querySelector('#inicio').style.transform = 'translateY(0)';
+            }, 300);
+        });
+        // Efecto hover para elementos interactivos
+        document.querySelectorAll('.interactive-image').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.transform = 'scale(1.02)';
+                item.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
+                item.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            });
+            
+            item.addEventListener('mouseout', () => {
+                item.style.transform = 'scale(1)';
+                item.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            });
+        });
+        
+        // Scroll suave para navegación interna
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Efecto de resaltado para elementos interactivos
+        document.querySelectorAll('.card, .feature, .btn, .gallery-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.transition = 'all 0.3s ease';
+            });
+        });
+    </script>
+</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnica Quirúrgica Correcta de las Pinzas Kelly</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #16a085;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --danger-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23ffffff10" d="M0,0 L100,0 L100,5 C60,20 40,20 0,5 Z"></path></svg>');
+            background-size: cover;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .header h1:hover {
+            transform: scale(1.05);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo i {
+            margin-right: 0.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .main {
+            padding: 3rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -10px;
+            left: 20%;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .card-text {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .card-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .procedimiento {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .procedimiento-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .procedimiento-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .procedimiento-title {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+        }
+        
+        .procedimiento-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .procedimiento.active .procedimiento-content {
+            max-height: 1000px;
+        }
+        
+        .procedimiento.active .procedimiento-icon {
+            transform: rotate(90deg);
+        }
+        
+        .procedimiento-steps {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        .procedimiento-steps li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .procedimiento-steps li::before {
+            content: counter(list-item) ".";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .quote {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .quote p {
+            font-style: italic;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .quote cite {
+            font-weight: bold;
+            display: block;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay h3 {
+            margin-bottom: 0.5rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            width: 90%;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            background-color: var(--danger-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background-color: #c0392b;
+        }
+        
+        .modal-img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .modal-caption {
+            padding: 1rem;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .interactive-demo {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .demo-canvas {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-canvas img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .demo-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .demo-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .demo-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .faq {
+            margin: 3rem 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--dark-color);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1rem;
+            max-height: 1000px;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--secondary-color);
+            cursor: help;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark-color) transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animaciones */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Técnica Quirúrgica Correcta de las Pinzas Kelly</h1>
+            <p>Guía completa para profesionales de la salud sobre el uso adecuado de las pinzas Kelly en procedimientos quirúrgicos</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section id="introduccion" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Introducción a las Pinzas Kelly</h2>
+                </div>
+                <div class="procedimiento">
+                    <p>Las pinzas Kelly son instrumentos quirúrgicos fundamentales en la práctica médica moderna. Diseñadas originalmente por Howard Atwood Kelly, un reconocido ginecólogo estadounidense, estas pinzas hemostáticas se han convertido en una herramienta esencial en casi todos los procedimientos quirúrgicos.</p>
+                    <br>
+                    <p>Su diseño se caracteriza por tener un mango con anillas, un mecanismo de bloqueo tipo cremallera y puntas que pueden ser rectas o curvas, con estrías transversales para un mejor agarre de los tejidos y vasos sanguíneos.</p>
+                    
+                    <div class="quote">
+                        <p>"El dominio de las pinzas Kelly representa uno de los fundamentos básicos en la formación de cualquier cirujano, independientemente de su especialidad."</p>
+                        <cite>- Academia Americana de Cirugía</cite>
+                    </div>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="https://instamedic.mx/wp-content/uploads/2020/01/pinza-kelly-recta7.png" alt="Pinzas Kelly Rectas">
+                            <div class="gallery-overlay">
+                                <h3>Pinzas Kelly Rectas</h3>
+                                <p>Diseño clásico para hemostasia general</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://www.dentalmex.mx/wp-content/uploads/2019/09/Pinzas-Kelly-de-la-marca-Arain.-Deposito-Dental-Dentalmex.jpg" alt="Pinzas Kelly Curvas">
+                            <div class="gallery-overlay">
+                                <h3>Pinzas Kelly Curvas</h3>
+                                <p>Ideales para espacios anatómicos de difícil acceso</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://instamedic.mx/wp-content/uploads/2020/01/Kelly-curva-2.webp" alt="Aplicación quirúrgica">
+                            <div class="gallery-overlay">
+                                <h3>Aplicación en Cirugía</h3>
+                                <p>Uso adecuado durante procedimientos quirúrgicos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tipos" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Tipos de Pinzas Kelly</h2>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://quercuslab.es/929-thickbox_default/pinza-hemostatica-kelly-recta.jpg" alt="Pinzas Kelly Rectas">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Kelly Rectas</h3>
+                            <p class="card-text">Diseñadas para proporcionar un agarre firme y directo en procedimientos generales. Ideales para hemostasia de vasos visibles y accesibles.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.beracahmedica.mx/web/image/product.template/19055/image_256" alt="Pinzas Kelly Curvas">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Kelly Curvas</h3>
+                            <p class="card-text">Su diseño curvo facilita el acceso a espacios anatómicos de difícil alcance. Perfectas para cirugías en cavidades profundas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.coricama.it/wp-content/uploads/2016/10/568720.jpg" alt="Pinzas Kelly-Rankin">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Kelly-Rankin</h3>
+                            <p class="card-text">Variante con mayor curvatura, diseñada especialmente para procedimientos ginecológicos y obstétricos profundos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tecnica" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Técnica Quirúrgica Correcta</h2>
+                </div>
+                
+                <div class="procedimiento procedimiento-1">
+                    <div class="procedimiento-header">
+                        <i class="fas fa-chevron-right procedimiento-icon"></i>
+                        <h3 class="procedimiento-title">Agarre Correcto de la Pinza</h3>
+                    </div>
+                    <div class="procedimiento-content">
+                        <ol class="procedimiento-steps">
+                            <li>Sostenga la pinza Kelly con el pulgar y el cuarto dedo insertados en los anillos.</li>
+                            <li>El dedo índice debe extenderse a lo largo del eje de la pinza para proporcionar estabilidad y dirección.</li>
+                            <li>Los dedos medio y anular deben posicionarse a lo largo del mango para un control preciso.</li>
+                            <li>Mantenga la muñeca relajada pero firme para permitir movimientos precisos y evitar fatiga.</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="procedimiento procedimiento-2">
+                    <div class="procedimiento-header">
+                        <i class="fas fa-chevron-right procedimiento-icon"></i>
+                        <h3 class="procedimiento-title">Técnica de Pinzamiento Vascular</h3>
+                    </div>
+                    <div class="procedimiento-content">
+                        <ol class="procedimiento-steps">
+                            <li>Identifique claramente el vaso sanguíneo antes de aplicar la pinza.</li>
+                            <li>Abra la pinza completamente y colóquela perpendicular al vaso.</li>
+                            <li>Aplique la pinza de forma que las puntas cierren primero, seguidas por el resto de la superficie de agarre.</li>
+                            <li>Cierre la pinza hasta el primer diente del mecanismo de cremallera para vasos delicados, o hasta el segundo o tercer diente para vasos más gruesos.</li>
+                            <li>Verifique que el vaso esté completamente ocluido pero evite aplicar excesiva presión que pueda dañar el tejido.</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="procedimiento procedimiento-3">
+                    <div class="procedimiento-header">
+                        <i class="fas fa-chevron-right procedimiento-icon"></i>
+                        <h3 class="procedimiento-title">Técnica para Disección de Tejidos</h3>
+                    </div>
+                    <div class="procedimiento-content">
+                        <ol class="procedimiento-steps">
+                            <li>Utilice la punta cerrada de la pinza para crear planos de disección entre tejidos.</li>
+                            <li>Avance con movimientos suaves y controlados, siguiendo los planos naturales del tejido.</li>
+                            <li>Alterne entre movimientos de apertura controlada para separar tejidos y cierre para sujetar estructuras.</li>
+                            <li>Mantenga una tensión adecuada para facilitar la visualización y evitar daños tisulares.</li>
+                            <li>Use la pinza como guía para otros instrumentos como el bisturí o las tijeras cuando sea necesario.</li>
+                        </ol>
+                       
+                    </div>
+                </div>
+                
+                <div class="procedimiento procedimiento-4">
+                    <div class="procedimiento-header">
+                        <i class="fas fa-chevron-right procedimiento-icon"></i>
+                        <h3 class="procedimiento-title">Ligadura y Anudado con Pinzas Kelly</h3>
+                    </div>
+                    <div class="procedimiento-content">
+                        <ol class="procedimiento-steps">
+                            <li>Tras pinzar el vaso, mantenga la pinza Kelly en posición con la mano no dominante.</li>
+                            <li>Con su mano dominante, pase una sutura alrededor del vaso, proximal al punto de pinzamiento.</li>
+                            <li>Realice un nudo quirúrgico adecuado según el calibre del vaso y el tipo de sutura.</li>
+                            <li>Antes de retirar la pinza, asegúrese de que el nudo está correctamente ajustado.</li>
+                            <li>Retire la pinza lentamente, observando si hay sangrado residual. Si es necesario, coloque una segunda ligadura.</li>
+                        </ol>
+                       
+                    <div class="demo-controls">
+                        <button class="demo-btn" data-step="1">Paso 1: Agarre</button>
+                        <button class="demo-btn" data-step="2">Paso 2: Posicionamiento</button>
+                        <button class="demo-btn" data-step="3">Paso 3: Cierre</button>
+                        <button class="demo-btn" data-step="4">Paso 4: Ligadura</button>
+                        <button class="demo-btn" data-step="5">Paso 5: Retirada</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="aplicaciones" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Aplicaciones Clínicas</h2>
+                </div>
+                
+                <div class="cards">
+                    <div class="card">
+                        
+                        <div class="card-content">
+                            <h3 class="card-title">Cirugía General</h3>
+                            <p class="card-text">En procedimientos abdominales como apendicectomías, colecistectomías y resecciones intestinales, las pinzas Kelly son esenciales para el control hemostático y la manipulación de tejidos.</p>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">Cirugía Vascular</h3>
+                            <p class="card-text">El diseño atraumático de las pinzas Kelly modernas permite su uso en cirugía vascular para el control temporal de vasos de mediano calibre sin dañar la íntima vascular.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote">
+                    <p>"La versatilidad de las pinzas Kelly las ha convertido en un instrumento imprescindible en el arsenal quirúrgico moderno, adaptándose a múltiples especialidades y procedimientos."</p>
+                    <cite>- Revista Internacional de Cirugía</cite>
+                </div>
+            </section>
+            
+            <section id="cuidados" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Cuidado y Mantenimiento</h2>
+                </div>
+                
+                <div class="procedimiento procedimiento-5">
+                    <div class="procedimiento-header">
+                        <i class="fas fa-chevron-right procedimiento-icon"></i>
+                        <h3 class="procedimiento-title">Limpieza y Esterilización</h3>
+                    </div>
+                    <div class="procedimiento-content">
+                        <ol class="procedimiento-steps">
+                            <li>Inmediatamente después de su uso, enjuague las pinzas con agua fría para eliminar restos de sangre o tejidos.</li>
+                            <li>Limpie manualmente las pinzas con un detergente enzimático, prestando especial atención a las articulaciones y cremalleras.</li>
+                            <li>Utilice un cepillo suave para limpiar las estrías y zonas de difícil acceso.</li>
+                            <li>Enjuague abundantemente y seque completamente antes de la esterilización.</li>
+                            <li>Esterilice según los protocolos hospitalarios, típicamente en autoclave a 121-134°C.</li>
+                            <li>Inspeccione regularmente las pinzas para detectar desgaste, desalineación o daños en las estrías.</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="procedimiento procedimiento-6">
+                    <div class="procedimiento-header">
+                        <i class="fas fa-chevron-right procedimiento-icon"></i>
+                        <h3 class="procedimiento-title">Signos de Deterioro y Reemplazo</h3>
+                    </div>
+                    <div class="procedimiento-content">
+                        <ul class="procedimiento-steps">
+                            <li>Desalineación de las puntas: las puntas deben encontrarse perfectamente al cerrar la pinza.</li>
+                            <li>Desgaste de las estrías: la capacidad de agarre disminuye significativamente.</li>
+                            <li>Mecanismo de cremallera defectuoso: la pinza no se mantiene cerrada o es difícil de abrir.</li>
+                            <li>Corrosión o manchas persistentes: pueden comprometer la integridad estructural.</li>
+                            <li>Rigidez en la articulación: dificulta la manipulación precisa durante la cirugía.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section id="faq" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Preguntas Frecuentes</h2>
+                </div>
+                
+                <div class="faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Cuál es la diferencia entre pinzas Kelly y pinzas Kocher?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La principal diferencia radica en las estrías de las puntas. Las pinzas Kelly tienen estrías transversales horizontales, mientras que las pinzas Kocher tienen dientes que se entrelazan en las puntas, además de estrías horizontales. Las Kocher están diseñadas para agarrar tejidos más gruesos y resistentes, mientras que las Kelly son más adecuadas para vasos sanguíneos y tejidos delicados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Cuándo debo usar Kelly rectas versus Kelly curvas?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Las pinzas Kelly rectas son más adecuadas para procedimientos superficiales o cuando se necesita un agarre directo y frontal. Las Kelly curvas son preferibles para acceder a espacios profundos o áreas anatómicas de difícil acceso, como la pelvis profunda o detrás de estructuras orgánicas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Las pinzas Kelly son adecuadas para todos los tipos de vasos sanguíneos?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Las pinzas Kelly son ideales para vasos de pequeño a mediano calibre (hasta aproximadamente 3-4mm de diámetro). Para vasos de mayor calibre como las arterias principales, se recomiendan pinzas vasculares específicas con un diseño atraumático que minimice el daño a la íntima vascular. Para vasos muy pequeños y delicados, pueden ser preferibles pinzas más finas como las mosquito.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Con qué frecuencia deben reemplazarse las pinzas Kelly?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No existe un período fijo para el reemplazo, ya que depende de la frecuencia de uso y las condiciones de mantenimiento. Sin embargo, deben inspeccionarse rutinariamente antes de cada procedimiento y reemplazarse cuando presenten signos de desgaste que comprometan su funcionalidad como: desalineación de las puntas, erosión significativa de las estrías, mal funcionamiento del mecanismo de cierre o corrosión visible.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Se pueden usar pinzas Kelly en cirugía laparoscópica?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Las pinzas Kelly convencionales no están diseñadas para cirugía laparoscópica. Sin embargo, existen versiones laparoscópicas que mantienen el mismo principio de funcionamiento pero adaptadas para su uso a través de trócares. Estas versiones laparoscópicas suelen tener un mango ergonómico diferente, un eje largo y delgado, y el mismo tipo de punta pero en escala más pequeña.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="modal" id="imageModal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <img src="" alt="Imagen ampliada" class="modal-img">
+                    <div class="modal-caption"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="footer-section footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> San Manuel, Sauzalito 3a. Sección, 78110. San Luis Potosí</p>
+                    <p><i class="fas fa-phone"></i> +52 4444437748</p>
+                    <p><i class="fas fa-envelope"></i> info.kellyclamp@gmail.com</p>
+                </div>
+            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales</title>
+    <!-- Enlace a Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .social-links {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+            color: #333; /* Color base de los iconos */
+            font-size: 2em;
+        }
+        
+        .social-link:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+        
+        /* Color específico para Instagram */
+        .fa-instagram {
+            color: #E1306C;
+        }
+        
+        /* Color específico para Facebook */
+        .fa-facebook {
+            color: #3b5998;
+        }
+    </style>
+</head>
+<body>
+    <div class="social-links">
+        <!-- Enlace de Instagram -->
+        <a href="https://www.instagram.com/cetis125/" 
+           class="social-link" 
+           target="_blank"
+           aria-label="Síguenos en Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        
+        <!-- Enlace de Facebook -->
+        <a href="https://www.facebook.com/people/CETis-125/100064660060838/" 
+           class="social-link" 
+           target="_blank"
+           aria-label="Síguenos en Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+</body>
+
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 KellyClamp. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Función para mostrar secciones al hacer scroll
+        function revealSections() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.8) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        // Mostrar procedimientos al hacer clic
+        const procedimientoHeaders = document.querySelectorAll('.procedimiento-header');
+        
+        procedimientoHeaders.forEach((header) => {
+            header.addEventListener('click', () => {
+                const procedimiento = header.parentElement;
+                procedimiento.classList.toggle('active');
+            });
+        });
+        
+        // Activar primer procedimiento por defecto
+        document.querySelector('.procedimiento-1').classList.add('active');
+        
+        // Modal para imágenes
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.querySelector('.modal-img');
+        const modalCaption = document.querySelector('.modal-caption');
+        const closeModal = document.querySelector('.modal-close');
+        
+        galleryItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const overlay = item.querySelector('.gallery-overlay');
+                
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                modalCaption.textContent = overlay.querySelector('h3').textContent;
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Demostración interactiva
+        const demoButtons = document.querySelectorAll('.demo-btn');
+        const demoImage = document.getElementById('demo-image');
+        
+        demoButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const step = button.getAttribute('data-step');
+                // En un sitio real, cambiaríamos la imagen según el paso
+                // Aquí solo simulamos el cambio
+                demoImage.alt = `Demostración Paso ${step}`;
+                
+                // Resaltar botón activo
+                demoButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+        
+        // Manejo de las preguntas frecuentes
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach((question) => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                
+                // Toggle para la pregunta actual
+                faqItem.classList.toggle('active');
+                
+                // Opcional: cerrar otras preguntas
+                document.querySelectorAll('.faq-item').forEach((item) => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Efecto smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Botones de demostración de tipos de pinzas
+        const demoTypeButtons = document.querySelectorAll('.card-btn[data-demo]');
+        
+        demoTypeButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const demoType = button.getAttribute('data-demo');
+                // Aquí iría la lógica para mostrar la demostración específica
+                alert(`Mostrando demostración de pinzas Kelly ${demoType}`);
+            });
+        });
+        
+        // Inicializar
+        window.addEventListener('load', revealSections);
+        window.addEventListener('scroll', revealSections);
+        
+        // Activar primera pregunta por defecto
+        document.querySelector('.faq-item').classList.add('active');
+    </script>
+
+</body>
+
+</body>
+</html>
